@@ -11,9 +11,8 @@ def index():
         # remove the background of the image
         input_data = file.read()
         output_data = remove(input_data)
-        # create a response object with the output image as the attachment
-        response = make_response(send_file(output_data, as_attachment=True, attachment_filename='output.png'))
-        return response
+        # display the output image
+        return send_file(output_data, mimetype='image/png')
     else:
         return render_template('index.html')
 
